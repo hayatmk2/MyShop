@@ -1,9 +1,12 @@
 import express  from 'express'
 import dotenv from 'dotenv'
 import products from './data/Products.js'
+import connectDB from './config/db.js'
 
 const app = express()
 dotenv.config()
+connectDB()
+
 
 //js router 
 app.get('/api/products', (req, res) =>{
@@ -15,5 +18,5 @@ app.get('/api/products/:id', (req, res) => {
    res.json(product);
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 4000
 app.listen(PORT, console.log(`run sucsessfuly ${PORT}`));
